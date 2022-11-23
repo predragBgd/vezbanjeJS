@@ -59,16 +59,16 @@ let turisti = [
   },
 ];
 
-function posete() {
-  turisti.forEach((el) => {
+function imeTuriste() {
+  return turisti.forEach((el) => {
     return el.ime;
   });
 }
-console.log(posete());
+console.log(imeTuriste());
 
-function posete1() {
+function imeTuriste1() {
   turisti.forEach((el) => {
     console.log(el.ime);
   });
 }
-posete1();
+imeTuriste1();
