@@ -6,69 +6,70 @@ let turisti = [
   {
     ime: "Petar",
     prezime: "Jović",
-    jmbg: 1234568,
     posetio: ["Njujork", "London", "Pariz", "Moskva", "Peking"],
+    godiste: 1999,
   },
   {
     ime: "Marko",
     prezime: "Ković",
-    jmbg: 8765233,
     posetio: ["Beč", "Moskva", "London", "Minhen", "Atina"],
+    godiste: 1987,
   },
   {
     ime: "Zoran",
     prezime: "Djordjević",
-    jmbg: 7378967,
     posetio: ["Tel Aviv", "Njujork", "London", "Pariz", "Moskva"],
+    godiste: 2002,
   },
   {
     ime: "Mirko",
     prezime: "Mitić",
-    jmbg: 5201739,
     posetio: ["Minhen", "Atina", "Moskva", "Los Andjeles", "Čikago"],
+    godiste: 1974,
   },
   {
     ime: "Jovana",
     prezime: "Cekić",
-    jmbg: 9127439,
     posetio: ["Peking", "Moskva", "Los Andjeles", "Tel Aviv", "Njujork"],
+    godiste: 1991,
   },
   {
     ime: "Nikola",
     prezime: "Brkić",
-    jmbg: 4810984,
     posetio: ["London", "Moskva", "Tokio", "Čikago", "Peking"],
+    godiste: 2001,
   },
   {
     ime: "Petar",
     prezime: "Zorić",
-    jmbg: 1947204,
     posetio: ["Atina", "Moskva", "Los Andjeles", "Čikago", "Tel Aviv"],
+    godiste: 2005,
   },
   {
     ime: "Marija",
     prezime: "Ivić",
-    jmbg: 4209843,
     posetio: ["Čikago", "Tel Aviv", "Peking"],
+    godiste: 1981,
   },
   {
     ime: "Biljana",
     prezime: "Lekić",
-    jmbg: 8147409,
     posetio: ["Atina", "Tokio", "Njujork", "Pariz"],
+    godiste: 1991,
   },
 ];
 
-function imeTuriste() {
-  return turisti.forEach((el) => {
-    return el.ime;
-  });
-}
-console.log(imeTuriste());
+let osobe = [
+  "Mladen",
+  "Jovan",
+  "Ivana",
+  "Jelena",
+  "Miloš",
+  "Ivan",
+  "Nina",
+  "Mila",
+  "Zoran",
+];
 
-function imeTuriste1() {
-  turisti.forEach((el) => {
-    console.log(el.ime);
-  });
-}
-imeTuriste1();
+let arv = turisti.map((el) => el.ime + " je bio u " + el.posetio);
+console.log(arv);
