@@ -162,4 +162,4 @@ function prikaziTuriste() {
     );
   });
 }
-prikaziTuriste(2000);
+prikaziTuriste();
