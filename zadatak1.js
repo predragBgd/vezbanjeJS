@@ -80,7 +80,7 @@ function dodajGradTuristi(ime, grad) {
     } else if (briseGradTuristi(ime, grad));
   });
 }
-dodajGradTuristi("Goran", "Kairo");
+dodajGradTuristi("Monika", "Budimpešta");
 
 // Funkcija brise grad turisti
 function briseGradTuristi(ime, grad) {
@@ -105,7 +105,7 @@ function prikaziTuristeGdeZeleDaIdu(grad) {
     }
   });
 }
-prikaziTuristeGdeZeleDaIdu("Lisabon");
+prikaziTuristeGdeZeleDaIdu("Minhen");
 
 // Funkcija ispisuje gradove koje je posetio turista
 function posetioci(ime) {
@@ -120,7 +120,7 @@ function posetioci(ime) {
     }
   }
 }
-posetioci("Goran");
+posetioci("Aleksandra");
 
 // Funkcija menja broj telefona turiste
 function promeniTelefon(ime, telefon) {
@@ -130,7 +130,7 @@ function promeniTelefon(ime, telefon) {
     }
   }
 }
-console.log(promeniTelefon("Goran", "+38161357990"));
+console.log(promeniTelefon("Milan", "+38161357990"));
 
 // Funkcija prikazuje turiste prema godistu
 function prikaziTuristePoGodistu(godiste) {
