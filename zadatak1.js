@@ -95,7 +95,7 @@ function briseGradTuristi(ime, grad) {
   });
 }
 
-//Funkcija ispisuje turiste prema gradovima koje turista zeli da poseti
+// Funkcija ispisuje turiste prema gradovima koje turista zeli da poseti
 function prikaziTuristeGdeZeleDaIdu(grad) {
   turisti.forEach((turista) => {
     for (let i in turista.zeljeniGradovi) {
@@ -122,7 +122,7 @@ function posetioci(ime) {
 }
 posetioci("Goran");
 
-//Funkcija menja broj telefona turiste
+// Funkcija menja broj telefona turiste
 function promeniTelefon(ime, telefon) {
   for (let turista of turisti) {
     if (turista.ime == ime) {
