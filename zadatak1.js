@@ -5,6 +5,7 @@ let turisti = [
     godiste: 1989,
     telefon: "+301601123557",
     posetioGradove: ["Prag", "Pariz", "Minhen"],
+    zeljeniGradovi: ["Lisabon", "London", "Njujork", "Venecija", "Atina"],
   },
   {
     ime: "Milan",
@@ -12,6 +13,7 @@ let turisti = [
     godiste: 2001,
     telefon: "+301638954171",
     posetioGradove: ["London", "Minhen", "Prag", "Pariz", "Budimpešta"],
+    zeljeniGradovi: ["Čikago", "Venecija", "Atina", "Sidnej", "Kairo"],
   },
   {
     ime: "Aleksandra",
@@ -19,6 +21,7 @@ let turisti = [
     godiste: 2010,
     telefon: "+381698709000",
     posetioGradove: ["Prag", "Moskva", "Pariz", "Sidnej", "Solun"],
+    zeljeniGradovi: ["Minhen", "Rim", "Tel Aviv", "Budimpešta", "Lisabon"],
   },
   {
     ime: "Monika",
@@ -26,6 +29,7 @@ let turisti = [
     godiste: 2015,
     telefon: "+30165167415",
     posetioGradove: ["Njujork", "Beč", "Minhen", "Venecija"],
+    zeljeniGradovi: ["Rim", "Budimpešta", "Atina", "Madrid", "Lisabon"],
   },
   {
     ime: "Goran",
@@ -33,6 +37,7 @@ let turisti = [
     godiste: 1973,
     telefon: "+381648120942",
     posetioGradove: ["Pariz", "Prag", "Venecija", "Beč", "Solun"],
+    zeljeniGradovi: ["Kairo", "Lisabon", "Los Andjeles", "Tokio", "Minhen"],
   },
 ];
 
@@ -41,29 +46,68 @@ let turisti = [
 // }
 
 // Funkcija kreira novog turistu
-function kreirajNovogTuristu(ime, prezime, godiste, telefon, posetioGradove) {
+function kreirajNovogTuristu(
+  ime,
+  prezime,
+  godiste,
+  telefon,
+  posetioGradove,
+  zeljeniGradovi
+) {
   turisti.push({
     ime: ime,
     prezime: prezime,
     godiste: godiste,
     telefon: telefon,
     posetioGradove: posetioGradove,
+    zeljeniGradovi: zeljeniGradovi,
   });
 }
-kreirajNovogTuristu("Milan", "Dobrić", 1981, "+38164910298", "Lisabon");
+kreirajNovogTuristu(
+  "Milan",
+  "Dobrić",
+  1981,
+  "+38164910298",
+  "Lisabon",
+  "London"
+);
 
 // Funkcija upisuje novi grad koji je turista posetio
-function dodajGradTuristi(imeTuriste, grad) {
-  for (let turista in turisti) {
-    if (turisti[turista].ime == imeTuriste) {
-      turisti[turista].posetioGradove.push(grad);
-    }
-  }
+function dodajGradTuristi(ime, grad) {
+  turisti.forEach((turista) => {
+    if (turista.ime == ime) {
+      turista.posetioGradove.push(grad);
+    } else if (briseGradTuristi(ime, grad));
+  });
 }
-dodajGradTuristi("Goran", "Madrid");
-//funkcija ispisuje gradove koje turista zeli da poseti
+dodajGradTuristi("Goran", "Kairo");
 
-// Funkcija ispisuje gradove koje je posetio turista------i brise zelje--------
+// Funkcija brise grad turisti
+function briseGradTuristi(ime, grad) {
+  turisti.forEach((turista) => {
+    if (turista.ime == ime) {
+      for (let i in turista.zeljeniGradovi) {
+        if (turista.zeljeniGradovi[i] == grad) {
+          turista.zeljeniGradovi.splice(i, 1);
+        }
+      }
+    }
+  });
+}
+
+//Funkcija ispisuje turiste prema gradovima koje turista zeli da poseti
+function prikaziTuristeGdeZeleDaIdu(grad) {
+  turisti.forEach((turista) => {
+    for (let i in turista.zeljeniGradovi) {
+      if (turista.zeljeniGradovi[i] == grad) {
+        console.log(grad + " zeli da poseti " + turista.ime);
+      }
+    }
+  });
+}
+prikaziTuristeGdeZeleDaIdu("Lisabon");
+
+// Funkcija ispisuje gradove koje je posetio turista
 function posetioci(ime) {
   for (let turista in turisti) {
     if (turisti[turista].ime == ime) {
@@ -77,17 +121,6 @@ function posetioci(ime) {
   }
 }
 posetioci("Goran");
-/*
-let noviTuristaA = ["Milan1", "Dobrić4", 1981, "+38164910298", "Lisabon6"];
-let noviTuristaO = {};
-let noviT = () => {
-  for (let el of noviTuristaA) {
-    return noviTuristaO[el].ime;
-  }
-};
-noviT();
-console.log(noviTuristaO);
-*/
 
 //Funkcija menja broj telefona turiste
 function promeniTelefon(ime, telefon) {
@@ -101,14 +134,14 @@ console.log(promeniTelefon("Goran", "+38161357990"));
 
 // Funkcija prikazuje turiste prema godistu
 function prikaziTuristePoGodistu(godiste) {
-  console.log("Turisti mladji od " + godiste + " godine.");
+  console.log("Turisti mladji od " + godiste + " godine:");
   turisti.forEach((turista) => {
-    if (turista.godiste <= godiste) {
+    if (turista.godiste < godiste) {
       console.log(turista.ime + " " + turista.godiste);
     }
   });
 }
-prikaziTuristePoGodistu(2000);
+prikaziTuristePoGodistu(1999);
 
 // Prikazuje sve turiste
 function prikaziTuriste() {
@@ -123,7 +156,9 @@ function prikaziTuriste() {
         " " +
         turista.telefon +
         " " +
-        turista.posetioGradove
+        turista.posetioGradove +
+        " " +
+        turista.zeljeniGradovi
     );
   });
 }
