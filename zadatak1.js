@@ -4,7 +4,7 @@ let turisti = [
     prezime: "Petrović",
     godiste: 1989,
     telefon: "+301601123557",
-    posetioGradove: [],
+    posetioGradove: ["Prag", "Pariz", "Minhen"],
   },
   {
     ime: "Milan",
@@ -36,9 +36,9 @@ let turisti = [
   },
 ];
 
-for (let turista in turisti) {
-  console.log(turisti[turista].ime + " " + turisti[turista].prezime);
-}
+// for (let turista in turisti) {
+//   console.log(turisti[turista].ime + " " + turisti[turista].prezime);
+// }
 
 // Funkcija kreira novog turistu
 function kreirajNovogTuristu(ime, prezime, godiste, telefon, posetioGradove) {
@@ -101,18 +101,30 @@ console.log(promeniTelefon("Goran", "+38161357990"));
 
 // Funkcija prikazuje turiste prema godistu
 function prikaziTuristePoGodistu(godiste) {
+  console.log("Turisti mladji od " + godiste + " godine.");
   turisti.forEach((turista) => {
     if (turista.godiste <= godiste) {
-      console.log(
-        turista.ime +
-          " " +
-          turista.prezime +
-          " " +
-          turista.godiste +
-          " " +
-          turista.telefon
-      );
+      console.log(turista.ime + " " + turista.godiste);
     }
   });
 }
 prikaziTuristePoGodistu(2000);
+
+// Prikazuje sve turiste
+function prikaziTuriste() {
+  console.log("Turisti u sistemu:");
+  turisti.forEach((turista) => {
+    console.log(
+      turista.ime +
+        " " +
+        turista.prezime +
+        " " +
+        turista.godiste +
+        " " +
+        turista.telefon +
+        " " +
+        turista.posetioGradove
+    );
+  });
+}
+prikaziTuriste(2000);
