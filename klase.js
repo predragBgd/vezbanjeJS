@@ -81,3 +81,4 @@ sarma.zaVremePosta();
 posniPasulj.zaVremePosta();
 kupusSalata.zaVremePosta();
 kupusSalata.popustZaSalatu();
+moskvaTorta.upozorenje()
