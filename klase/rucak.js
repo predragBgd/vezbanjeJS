@@ -24,6 +24,9 @@ class Salata extends Hrana {
   }
   zaVremePosta() {
     super.zaVremePosta();
+    if (this.ime == "Posni pasulj") {
+      console.log(`${this.ime} je vež svakog dana!`);
+    }
   }
 }
 console.log(GlavnoJelo.popust1("jela od juče"));
