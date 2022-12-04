@@ -73,8 +73,10 @@ let vocniKolac = new Kolaci("Voćni kolač", [], 500, true, 350);
 //     el.rucak();
 //   }
 // }
+GlavnoJelo.popust;
+pilecaSupa.zaVremePosta();
 sarma.zaVremePosta();
 posniPasulj.zaVremePosta();
 kupusSalata.zaVremePosta();
-kupusSalata.popustZaSalatu();
+sopskaSalata.popustZaSalatu();
 moskvaTorta.upozorenje();
